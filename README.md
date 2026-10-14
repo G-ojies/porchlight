@@ -6,7 +6,7 @@ A doorbell is a sound. If you cannot hear it, a parcel goes back to the depot, a
 
 > **Package delivered.** A cardboard package is sitting on the porch floor next to the door.
 
-Live: **https://porchlight-ring.vercel.app** (demo mode works without a Ring account).
+Live: **https://porchlight-ring.vercel.app** (demo mode works without a Ring account). Demo video: https://youtu.be/RjqqiGvBhRE
 
 ## What it does
 

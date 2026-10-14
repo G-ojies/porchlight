@@ -63,5 +63,6 @@ ring-partner-api, ring-developer-playground, next.js, typescript, tailwindcss, v
 ## Links
 
 - Live: https://porchlight-ring.vercel.app
+- Video: https://youtu.be/RjqqiGvBhRE
 - Code: https://github.com/G-ojies/porchlight
 - Open source kit: https://github.com/G-ojies/ring-partner-kit
