@@ -1,0 +1,58 @@
+{
+  "/demo/person-door.jpg": {
+    "caption": "A person with a backpack is standing on the porch near a package.",
+    "seen": "person",
+    "people": 1,
+    "packageVisible": true,
+    "confident": true,
+    "by": "model"
+  },
+  "/demo/package-door.jpg": {
+    "caption": "A cardboard package is sitting on the porch floor next to the door.",
+    "seen": "package",
+    "people": 0,
+    "packageVisible": true,
+    "confident": true,
+    "by": "model"
+  },
+  "/demo/vehicle-arrives.jpg": {
+    "caption": "A silver sedan is driving down the residential street.",
+    "seen": "vehicle",
+    "people": 0,
+    "packageVisible": false,
+    "confident": true,
+    "by": "model"
+  },
+  "/demo/person-driveway.jpg": {
+    "caption": "A person is walking on the sidewalk near a parked black car.",
+    "seen": "person",
+    "people": 1,
+    "packageVisible": false,
+    "confident": true,
+    "by": "model"
+  },
+  "/demo/porch-parcels.jpg": {
+    "caption": "A cardboard box sits on the porch near the front door.",
+    "seen": "package",
+    "people": 0,
+    "packageVisible": true,
+    "confident": true,
+    "by": "model"
+  },
+  "/demo/person-porch.jpg": {
+    "caption": "A person in a light shirt is standing on the porch.",
+    "seen": "person",
+    "people": 1,
+    "packageVisible": false,
+    "confident": true,
+    "by": "model"
+  },
+  "/demo/person-parcel.jpg": {
+    "caption": "A person is carrying a cardboard box at the front door.",
+    "seen": "person",
+    "people": 1,
+    "packageVisible": true,
+    "confident": true,
+    "by": "model"
+  }
+}

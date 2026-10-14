@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light dark;
+}
+
+body {
+  @apply bg-stone-50 text-stone-900 dark:bg-stone-950 dark:text-stone-100;
+}
+
+/* The alert's edge flash. Under reduced motion it becomes a steady thick border. */
+@keyframes pl-flash {
+  0%, 100% { box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0); }
+  50% { box-shadow: inset 0 0 0 24px rgba(0, 0, 0, 0.85); }
+}
+.pl-flash {
+  animation: pl-flash 0.9s ease-in-out 6;
+}
+@media (prefers-reduced-motion: reduce) {
+  .pl-flash {
+    animation: none;
+    box-shadow: inset 0 0 0 16px rgba(0, 0, 0, 0.85);
+  }
+}
