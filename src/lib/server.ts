@@ -36,6 +36,9 @@ class Lru<V> {
   }
 }
 
+const MEDIA_RETRY_ROUNDS = 4;
+const MEDIA_RETRY_MS = 3000;
+
 const descriptions = new Lru<FrameDescription>(500);
 const snapshots = new Lru<{ bytes: Uint8Array; contentType: string }>(40);
 /** Webhook deliveries received by this instance, newest last. */
@@ -89,11 +92,21 @@ export async function eventSnapshot(
   const inRange = { type: "latest_in_range" as const, startTimestamp: at, endTimestamp: Math.min(end ?? at + 15000, Date.now()) };
   const atTime = { type: "at_timestamp" as const, timestamp: Math.min(at + 1500, Date.now()) };
   const [first, second] = ringKind === "live_view" ? [inRange, atTime] : [atTime, inRange];
+  // Media for a fresh event takes a few seconds to become available, so try a few rounds.
   let snap;
-  try {
-    snap = await client.snapshot(deviceId, first, opts);
-  } catch {
-    snap = await client.snapshot(deviceId, second, opts);
+  for (let round = 0; ; round++) {
+    try {
+      snap = await client.snapshot(deviceId, first, opts);
+      break;
+    } catch {
+      try {
+        snap = await client.snapshot(deviceId, second, opts);
+        break;
+      } catch (e) {
+        if (round >= MEDIA_RETRY_ROUNDS) throw e;
+        await new Promise((r) => setTimeout(r, MEDIA_RETRY_MS));
+      }
+    }
   }
   const v = { bytes: snap.bytes, contentType: snap.contentType };
   snapshots.set(k, v);

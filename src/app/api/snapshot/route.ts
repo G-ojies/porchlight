@@ -3,6 +3,8 @@ import { isDoorKind } from "@/lib/describe";
 import { eventSnapshot, ringClient } from "@/lib/server";
 
 export const dynamic = "force-dynamic";
+// Fresh media can take several seconds to become available.
+export const maxDuration = 30;
 
 /** The camera frame for a live event, proxied server-side (Ring blocks browser calls). */
 export async function GET(req: NextRequest) {
