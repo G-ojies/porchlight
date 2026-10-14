@@ -225,7 +225,7 @@ export default function Porchlight() {
         </section>
       )}
       {tab === "care" && <CarePanel mode={mode} />}
-      {tab === "connect" && <ConnectPanel mode={mode} onConnected={() => { firstLoad.current = true; setTab("door"); void poll(); }} onDisconnect={disconnect} />}
+      {tab === "connect" && <ConnectPanel mode={mode} onConnected={() => { seen.current.clear(); firstLoad.current = true; setEvents([]); setReadings({}); setTab("door"); void poll(); }} onDisconnect={disconnect} />}
 
       <Credits />
 
