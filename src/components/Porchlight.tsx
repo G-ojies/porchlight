@@ -440,7 +440,7 @@ function ConnectPanel({ mode, onConnected, onDisconnect }: { mode: Mode; onConne
           <label className="block text-sm font-semibold" htmlFor="pl-token">
             Ring access token
           </label>
-          <textarea id="pl-token" value={token} onChange={(e) => setToken(e.target.value)} rows={3} className="w-full rounded-lg border border-stone-400 bg-transparent p-2 font-mono text-xs" autoComplete="off" spellCheck={false} />
+          <textarea id="pl-token" value={token} onChange={(e) => setToken(e.target.value)} rows={3} className="w-full rounded-lg border border-stone-400 bg-transparent p-2 font-mono text-xs [-webkit-text-security:disc]" autoComplete="off" spellCheck={false} />
           <button disabled={busy || !token.trim()} onClick={connect} className="rounded-lg bg-stone-900 px-4 py-2 font-semibold text-white disabled:opacity-50 dark:bg-white dark:text-black">
             {busy ? "Checking with Ring..." : "Connect"}
           </button>
